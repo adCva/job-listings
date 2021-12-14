@@ -1,0 +1,167 @@
+.card-wrapper {
+    background-color: $light-grayish-cyan-filter;
+    //background-color: red;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    box-shadow: $card-box-shadow;
+    margin-bottom: 1.5rem;
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+
+    @media (min-width: 768px) {
+        display: flex;
+        align-items: center;
+    }
+
+
+    // =================================== Company Logo.
+    .company-logo {
+        width: 50px;
+        margin-top: -60px;
+
+        @media (min-width: 768px) {
+            width: 75px;
+            margin-top: 0;
+            margin-right: 1rem;
+        }
+    }
+
+
+    .info-container {
+        @media (min-width: 768px) {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+
+
+    // =================================== Company Info.
+    .company-info {
+        p {
+            color: $desaturated-dark-cyan;
+            font-weight: $fw-bold;
+            font-size: 14px;
+        }
+
+        button {
+            color: $light-grayish-cyan-bg;
+            margin: 0 0.5rem;
+            padding: 0.3rem;
+            font-size: 10px;
+            border-radius: 50px;
+            line-height: 1;
+            cursor: pointer;
+            transition: $btn-hover-transition;
+        }
+
+        .btn-new-job {
+            background-color: $desaturated-dark-cyan;
+
+            &:hover {
+                background-color: darken($desaturated-dark-cyan, 15%);
+            }
+
+            &:focus {
+                background-color: darken($desaturated-dark-cyan, 15%);
+            }
+        }
+
+        .btn-featured-job {
+            background-color: #2a3332;
+
+            &:hover {
+                background-color: lighten(#2a3332, 25%);
+            }
+
+            &:focus {
+                background-color: lighten(#2a3332, 25%);
+            }
+        }
+    }
+
+
+
+
+    // =================================== Job position.
+    .job-position {
+        font-weight: $fw-bold;
+        margin: 0.5rem 0;
+        cursor: pointer;
+        transition: $btn-hover-transition;
+
+        &:hover {
+            color: $desaturated-dark-cyan;
+        }
+    }
+
+
+
+
+    // =================================== Job info.
+    .job-info {
+        p {
+            color: $dark-grayish-cyan-filter;
+            margin-right: 1.5rem;
+            position: relative;
+            &:after {
+                content: "";
+                display: inline-block;
+                height: 4px;
+                width: 4px;
+                border-radius: 50%;
+                margin-left: 0.7rem;
+                background-color: $dark-grayish-cyan-filter;
+                position: absolute;
+                top: 35%;
+            }
+            &:last-of-type {
+                &:after{
+                    content: none;
+                }
+            }
+        }
+    }
+
+
+
+    
+    // =================================== tags.
+    .tags-container {
+        button {
+            background-color: $tag-btn-bg;
+            color: $desaturated-dark-cyan;
+            margin-right: 1rem;
+            padding: 0.8rem 0.5rem;
+            font-size: 12px;
+            line-height: 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: $btn-hover-transition;
+            &:last-of-type {
+                margin-right: 0;
+            }
+
+            &:hover {
+                background-color: $desaturated-dark-cyan;
+                color: $light-grayish-cyan-bg;
+            }
+
+            &:focus {
+                background-color: $desaturated-dark-cyan;
+                color: $light-grayish-cyan-bg;
+            }
+        }
+    }
+}
+
+
+
+
+// =================================== Featured.
+.card-featured {
+    border-left: 4px solid $desaturated-dark-cyan;
+}
