@@ -158,70 +158,80 @@
 }
 
 .filter-container {
-  background-color: #eef6f6;
-  width: 100%;
-  max-width: 900px;
-  padding: 1rem 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: absolute;
-  top: 90%;
+  top: 70px;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+  width: 95%;
+  max-width: 900px;
+  padding: 1rem 1rem;
+  background-color: #eef6f6;
   -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
           box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 7px;
 }
 
 @media (min-width: 768px) {
   .filter-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    padding: 1rem 1.5rem;
   }
 }
 
 .filter-container .filter-tags-container {
+  width: 75%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 0.8rem;
 }
 
 .filter-container .filter-tags-container div {
+  background-color: #ddebe9;
+  color: #5ba4a4;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-right: 1rem;
   padding-left: 0.5rem;
-  background-color: #ddebe9;
-  color: #5ba4a4;
-}
-
-.filter-container .filter-tags-container div:last-of-type {
-  margin-right: 0;
+  border-radius: 7px;
 }
 
 .filter-container .filter-tags-container div p {
+  font-weight: 700;
+  font-size: 14px;
   margin-right: 0.5rem;
 }
 
 .filter-container .filter-tags-container div button {
   background-color: #5ba4a4;
   color: #effafa;
+  font-size: 18px;
+  padding: 0.5rem 0.4rem 0.2rem;
   cursor: pointer;
-  padding: 0.3rem;
   -webkit-transition: all 0.25s linear;
   transition: all 0.25s linear;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
 }
 
 .filter-container .filter-tags-container div button:hover {
@@ -233,11 +243,13 @@
 }
 
 .filter-container .clear-btn {
+  position: relative;
   background: transparent;
+  color: #5ba4a4;
+  font-weight: 700;
+  font-size: 14.5px;
   border: none;
   outline: none;
-  color: #5ba4a4;
-  position: relative;
   cursor: pointer;
   -webkit-transition: all 0.25s linear;
   transition: all 0.25s linear;
@@ -288,12 +300,11 @@ body {
   color: #161616;
   font-family: "Spartan", sans-serif;
   font-size: 15px;
-  line-height: 1.3;
 }
 
 header {
   background-color: #5ba4a4;
-  height: 200px;
+  height: 170px;
   background-image: url("../Assets/bg-header-mobile.svg");
   background-position: center;
   background-size: cover;
