@@ -1,15 +1,12 @@
 .filter-container {
+    width: 95%;
+    max-width: 900px;
+    margin: 0 auto 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
-    top: 70px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 95%;
-    max-width: 900px;
-    padding: 1rem 1rem;
     background-color: $light-grayish-cyan-filter;
+    padding: 1rem 1rem;
     box-shadow: $card-box-shadow;
     border-radius: 7px;
 
@@ -28,7 +25,6 @@
         flex-wrap: wrap;
         gap: 0.8rem;
 
-
         div {
             background-color: $tag-btn-bg;
             color: $desaturated-dark-cyan;
@@ -43,7 +39,6 @@
                 font-size: 14px;
                 margin-right: 0.5rem;
             }
-
 
             button {
                 background-color: $desaturated-dark-cyan;

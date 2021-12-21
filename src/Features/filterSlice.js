@@ -1,75 +1,39 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 
-
 export const filterSlice = createSlice({
     name: "filter",
     initialState: {
         filterTags: [],
-        // ============= Temp solution for clear btn
-        initialJobs: [
-            {
-                new: true,
-                featured: true,
-                image: "photosnap.svg",
-                companyName: "Photosnap",
-                jobPosition: "Senior Frontend Developer",
-                posted: 1,
-                jobType: "Full Time",
-                jobLocation: "USA only",
-                tags: ["Frontend", "Senior", "HTML", "CSS", "JavaScript"]
-            },
-            {
-                new: false,
-                featured: false,
-                image: "myhome.svg",
-                companyName: "MyHome",
-                jobPosition: "Junior Frontend Developer",
-                posted: 5,
-                jobType: "Contract",
-                jobLocation: "USA only",
-                tags: ["Frontend", "Junior", "CSS", "JavaScript"]
-            }
-        ],
-        // ============= Temp solution for clear btn
-
-        jobs: [
-            {
-                new: true,
-                featured: true,
-                image: "photosnap.svg",
-                companyName: "Photosnap",
-                jobPosition: "Senior Frontend Developer",
-                posted: 1,
-                jobType: "Full Time",
-                jobLocation: "USA only",
-                tags: ["Frontend", "Senior", "HTML", "CSS", "JavaScript"]
-            },
-            {
-                new: false,
-                featured: false,
-                image: "myhome.svg",
-                companyName: "MyHome",
-                jobPosition: "Junior Frontend Developer",
-                posted: 5,
-                jobType: "Contract",
-                jobLocation: "USA only",
-                tags: ["Frontend", "Junior", "CSS", "JavaScript"]
-            }
-        ],
+        initialJobs: [],
+        jobs: []
     },
 
     reducers: {
+        createJobsData: (state, action) => {
+            let incomingJobsData = action.payload;
+            // Simulate incoming data from an API/server.
+            console.log(incomingJobsData);
+
+            return {
+                ...state,
+                initialJobs: incomingJobsData,
+                jobs: incomingJobsData
+            }
+        },
+
         addFilterTag: (state, action) => {
             let newTags = [];
             let filteredJobs = [];
 
-            // Don't add duplicates.
+            // Don't add duplicate tags.
             if (state.filterTags.includes(action.payload.tag)) {
                 newTags = [...state.filterTags];
             } else {
                 newTags = [...state.filterTags, action.payload.tag];
             }
+
+
 
             let jobsArray = JSON.parse(JSON.stringify(state.jobs));
             for (let i = 0; i < jobsArray.length; i++) {
@@ -92,7 +56,11 @@ export const filterSlice = createSlice({
             let newTagsArray = [...state.filterTags];
             newTagsArray.splice(eliminateTag, 1);
 
-            if (newTagsArray.length == 0) {
+
+
+
+            
+            if (newTagsArray.length === 0) {
                 return {
                     ...state,
                     filterTags: [],
@@ -102,13 +70,13 @@ export const filterSlice = createSlice({
                 let updatedArray = [];
                 let jobsArray = JSON.parse(JSON.stringify(state.initialJobs));
                 for (let i = 0; i < jobsArray.length; i++) {
-                    let isPresent = false;
+                    let isPresent = true;
                     for (let j = 0; j < newTagsArray.length; j++) {
-                        if (jobsArray[i].tags.includes(newTagsArray[j])) {
-                            isPresent = true;
+                        if (!jobsArray[i].tags.includes(newTagsArray[j])) {
+                            isPresent = false;
                         }
                     }
-                    if (isPresent == true) {
+                    if (isPresent === true) {
                         updatedArray.push(jobsArray[i]);
                     }
                 }
@@ -132,6 +100,6 @@ export const filterSlice = createSlice({
 });
 
 
-export const { addFilterTag, removeFilterTag, removeAllFilterTags } = filterSlice.actions;
+export const { createJobsData, addFilterTag, removeFilterTag, removeAllFilterTags } = filterSlice.actions;
 
 export default filterSlice.reducer;

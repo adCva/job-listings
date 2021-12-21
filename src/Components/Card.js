@@ -4,28 +4,14 @@ import { addFilterTag } from '../Features/filterSlice';
 
 function Card() {
     const jobs = useSelector(state => state.filters.jobs);
-    const filters = useSelector(state => state.filters.filterTags);
     const dispatch = useDispatch();
 
     const addNewFilterTag = (el) => {
         dispatch(addFilterTag({tag: el}));
     };
-
-
-    /*
-    const a = () => {
-        for (let i = 0; i < props.tags.length; i++) {
-            if (filters.includes(props.tags[i])) {
-                console.log("it does");
-                break;
-            } else {
-                console.log("it does not")
-                break;
-            }
-        }
-    }
-    */
     
+
+
     return (
         jobs.map((element, index) => (
             <div className={element.featured ? "card-wrapper card-featured" : "card-wrapper"} key={index}>
@@ -35,15 +21,15 @@ function Card() {
                         <div className="company-info row-direction">
                             <p>{element.companyName}</p>
                             {element.new ? (
-                                <button className="btn-new-job" onClick={() => addNewFilterTag("NEW")}>NEW!</button>
+                                <button className="btn-new-job">NEW!</button>
                             ) : null}
                             {element.featured ? (
-                                <button className="btn-featured-job" onClick={() => addNewFilterTag("FEATURED")}>FEATURED</button>
+                                <button className="btn-featured-job">FEATURED</button>
                             ) : null}
                         </div>
                         <h1 className="job-position">{element.jobPosition}</h1>
                         <div className="job-info row-direction">
-                            <p>{element.posted}d ago</p>
+                            <p>{element.posted} ago</p>
                             <p>{element.jobType}</p>
                             <p>{element.jobLocation}</p>
                         </div>
@@ -59,4 +45,4 @@ function Card() {
     )
 }
 
-export default Card
+export default Card;
